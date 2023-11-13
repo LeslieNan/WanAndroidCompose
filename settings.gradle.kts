@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "WanAndroidCompose"
 include(":app")
-include(":core_basae")
+include(":core_base")
