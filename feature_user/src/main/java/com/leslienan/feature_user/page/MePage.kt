@@ -1,6 +1,8 @@
 package com.leslienan.feature_user.page
 
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 
 /**
  * Author by haolan
@@ -9,6 +11,9 @@ import androidx.compose.runtime.Composable
  * PS:
  */
 @Composable
-fun MePage() {
+fun MePage(
+    modifier: Modifier = Modifier.fillMaxSize()
+) {
+
 
 }

@@ -7,30 +7,27 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Surface
+import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.leslienan.core_base.ui.theme.toolbarHeight
-import com.leslienan.core_base.widget.Toolbar
 import com.leslienan.feature_user.page.MePage
 import com.leslienan.wanandroidcompose.ui.theme.WanAndroidComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -48,7 +45,9 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    val pagerState = rememberPagerState(1)
+                    val tabs = listOf("首页", "知识体系", "成长", "我的")
+                    val pagerState = rememberPagerState(0)
+                    val scope = rememberCoroutineScope()
                     Column(Modifier.fillMaxSize()) {
                         HorizontalPager(
                             pageCount = 4, state = pagerState,
@@ -61,18 +60,39 @@ class MainActivity : ComponentActivity() {
                                 0 -> {
 
                                 }
-                                3->{
+                                3 -> {
                                     MePage()
                                 }
                             }
                         }
                         TabRow(
-                            selectedTabIndex = 0,
-                            Modifier
-                                .background(Color.Green)
-                                .height(50.dp)
+                            selectedTabIndex = pagerState.currentPage,
+                            Modifier.height(50.dp),
+                            indicator = {
+                                TabRowDefaults.Indicator(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .wrapContentSize(Alignment.BottomStart)
+                                        .width(0.dp)
+                                        .height(0.dp)//修改指示器高度为1dp，默认2dp
+                                )
+                            }
                         ) {
-
+                            val primaryColor = MaterialTheme.colorScheme.primary
+                            val secondaryColor = MaterialTheme.colorScheme.secondary
+                            tabs.forEachIndexed { index, tabName ->
+                                val selected = pagerState.currentPage == index
+                                Tab(selected = selected,
+                                    selectedContentColor = primaryColor,
+                                    unselectedContentColor = secondaryColor,
+                                    onClick = {
+                                        scope.launch {
+                                            pagerState.animateScrollToPage(index)
+                                        }
+                                    }) {
+                                    Text(text = tabName)
+                                }
+                            }
                         }
                     }
                 }
