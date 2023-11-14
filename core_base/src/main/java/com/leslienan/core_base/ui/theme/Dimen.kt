@@ -1,4 +1,4 @@
-package com.example.core_basae.ui.theme
+package com.leslienan.core_base.ui.theme
 
 import androidx.compose.ui.unit.dp
 

@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.wanandroidcompose"
+    namespace = "com.leslienan.wanandroidcompose"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.wanandroidcompose"
+        applicationId = "com.leslienan.wanandroidcompose"
         minSdk = 23
         targetSdk = 33
         versionCode = 1

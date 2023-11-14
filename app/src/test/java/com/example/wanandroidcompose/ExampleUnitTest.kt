@@ -1,4 +1,4 @@
-package com.example.wanandroidcompose
+package com.leslienan.wanandroidcompose
 
 import org.junit.Test
 

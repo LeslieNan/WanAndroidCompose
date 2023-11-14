@@ -1,4 +1,4 @@
-package com.example.wanandroidcompose
+package com.leslienan.wanandroidcompose
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -13,9 +13,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.core_basae.ui.theme.toolbarHeight
-import com.example.core_basae.widget.Toolbar
-import com.example.wanandroidcompose.ui.theme.WanAndroidComposeTheme
+import com.leslienan.core_base.ui.theme.toolbarHeight
+import com.leslienan.core_base.widget.Toolbar
+import com.leslienan.wanandroidcompose.ui.theme.WanAndroidComposeTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,20 +27,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
-                    Greeting("Android")
+                    Column(Modifier.fillMaxSize()) {
+                        Toolbar("首页")
+                        Spacer(modifier = Modifier.height(toolbarHeight))
+                    }
                 }
             }
         }
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
 }
 
 @Preview(showBackground = true)
