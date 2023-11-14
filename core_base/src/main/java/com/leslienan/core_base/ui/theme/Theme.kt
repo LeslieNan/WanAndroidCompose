@@ -1,4 +1,4 @@
-package com.leslienan.wanandroidcompose.ui.theme
+package com.leslienan.core_base.ui.theme
 
 import android.app.Activity
 import android.os.Build

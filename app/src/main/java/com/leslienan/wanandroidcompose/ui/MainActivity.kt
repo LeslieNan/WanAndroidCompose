@@ -1,4 +1,4 @@
-package com.leslienan.wanandroidcompose.page
+package com.leslienan.wanandroidcompose.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -26,7 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.leslienan.feature_user.page.MePage
-import com.leslienan.wanandroidcompose.ui.theme.WanAndroidComposeTheme
+import com.leslienan.core_base.ui.theme.WanAndroidComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 

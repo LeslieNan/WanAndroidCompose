@@ -1,4 +1,4 @@
-package com.leslienan.wanandroidcompose.page
+package com.leslienan.wanandroidcompose.ui
 
 import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
