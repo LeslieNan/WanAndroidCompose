@@ -17,3 +17,4 @@ rootProject.name = "WanAndroidCompose"
 include(":app")
 include(":core_base")
 include(":core_network")
+include(":feature_user")
