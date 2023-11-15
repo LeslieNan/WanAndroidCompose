@@ -14,7 +14,9 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/core_base" />
             <option value="$PROJECT_DIR$/core_network" />
+            <option value="$PROJECT_DIR$/data_article" />
             <option value="$PROJECT_DIR$/data_user" />
+            <option value="$PROJECT_DIR$/feature_article" />
             <option value="$PROJECT_DIR$/feature_user" />
           </set>
         </option>
