@@ -40,7 +40,7 @@ android {
 dependencies {
 
     implementation(project(mapOf("path" to ":core_base")))
-    implementation(project(mapOf("path" to ":core_network")))
+    api(project(mapOf("path" to ":core_network")))
     //hilt
     implementation("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")

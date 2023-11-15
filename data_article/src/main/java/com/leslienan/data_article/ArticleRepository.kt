@@ -9,4 +9,10 @@ import android.content.Context
  * PS:
  */
 class ArticleRepository(private val context: Context, private val articleApi: ArticleApi) {
+
+    /**
+     * 获取文章列表
+     */
+    suspend fun getArticleList(pageNum: Int) = articleApi.requestArticleList(pageNum)
+
 }
