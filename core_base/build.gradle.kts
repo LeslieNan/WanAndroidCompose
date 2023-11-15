@@ -62,6 +62,8 @@ dependencies {
     debugApi("androidx.compose.ui:ui-test-manifest")
     //compose组件
     api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
+    api("androidx.paging:paging-compose:1.0.0-alpha18")
+    api("io.coil-kt:coil-compose:1.3.2")
     //hilt
     api("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")

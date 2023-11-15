@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.leslienan.feature_user.ui.MePage
 import com.leslienan.core_base.ui.theme.WanAndroidComposeTheme
+import com.leslienan.feature_article.HomePage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -56,12 +57,8 @@ class MainActivity : ComponentActivity() {
                                 .weight(1f)
                         ) { page ->
                             when (page) {
-                                0 -> {
-
-                                }
-                                3 -> {
-                                    MePage()
-                                }
+                                0 -> HomePage()
+                                3 -> MePage()
                             }
                         }
                         TabRow(
