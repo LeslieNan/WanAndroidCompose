@@ -42,10 +42,12 @@ android {
 
 dependencies {
 
-    api("androidx.core:core-ktx:1.9.0")
-    api("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
-    //compose
-    api("androidx.activity:activity-compose:1.7.0")
+    api("androidx.core:core-ktx:1.10.1")
+    //lifecycle
+    api("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    api("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    //compose基础
+    api("androidx.activity:activity-compose:1.7.2")
     api(platform("androidx.compose:compose-bom:2023.06.01"))
     api("androidx.compose.ui:ui")
     api("androidx.compose.ui:ui-graphics")
@@ -58,6 +60,8 @@ dependencies {
     androidTestApi("androidx.compose.ui:ui-test-junit4")
     debugApi("androidx.compose.ui:ui-tooling")
     debugApi("androidx.compose.ui:ui-test-manifest")
+    //compose组件
+    api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     //hilt
     api("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")
@@ -67,5 +71,9 @@ dependencies {
     // For local unit tests
     testApi("com.google.dagger:hilt-android-testing:2.48.1")
     kspTest("com.google.dagger:hilt-compiler:2.48.1")
+    //第三方框架
+    api("com.tencent:mmkv:1.3.1")
+    api("com.github.liangjingkanji:Channel:1.1.2")
+    api("com.google.code.gson:gson:2.10.1")
 
 }

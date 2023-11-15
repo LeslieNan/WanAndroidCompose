@@ -25,7 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.leslienan.feature_user.page.MePage
+import com.leslienan.feature_user.ui.MePage
 import com.leslienan.core_base.ui.theme.WanAndroidComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch

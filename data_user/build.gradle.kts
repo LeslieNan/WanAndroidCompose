@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.leslienan.feature_user"
+    namespace = "com.leslienan.data_user"
     compileSdk = 33
 
     defaultConfig {
@@ -40,7 +40,7 @@ android {
 dependencies {
 
     implementation(project(mapOf("path" to ":core_base")))
-    implementation(project(mapOf("path" to ":data_user")))
+    implementation(project(mapOf("path" to ":core_network")))
     //hilt
     implementation("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")
