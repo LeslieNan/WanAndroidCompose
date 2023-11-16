@@ -1,6 +1,7 @@
 package com.leslienan.core_network
 
 import com.leslienan.core_network.adapter.ModelConverterFactory
+import com.leslienan.core_network.interceptor.LogInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -8,8 +9,10 @@ import dagger.hilt.components.SingletonComponent
 import okhttp3.ConnectionSpec
 import okhttp3.Dispatcher
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Retrofit
@@ -73,6 +76,7 @@ object RetrofitModule {
             .connectTimeout(CONN_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
+                .addInterceptor(LogInterceptor())
 //                .addInterceptor(ParamsInterceptor(BaseApplication.INSTANCE))
 //                .addInterceptor(WiresharkInterceptor())
 //                .addNetworkInterceptor(HttpLoggingInterceptor(BaseApplication.INSTANCE)) //TODO 测试下 是否是在9.0上才出现的问题
@@ -89,5 +93,5 @@ inline fun createRequestBody(data: JSONObject.() -> Unit = {}): RequestBody {
     } catch (e: JSONException) {
         e.printStackTrace()
     }
-    return RequestBody.create(MediaType.parse("application/json; charset=utf-8"), jsonObject.toString())
+    return jsonObject.toString().toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
 }

@@ -14,6 +14,6 @@ import retrofit2.http.POST
  */
 interface UserApi {
 
-    @POST(NetConst.baseUrl + "/user/login")//主账号信息
+    @POST("/user/login")//主账号信息
     suspend fun login(@Body requestBody: RequestBody): UserModel
 }

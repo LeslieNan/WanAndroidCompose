@@ -1,11 +1,9 @@
 package com.leslienan.feature_article
 
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.leslienan.core_network.ViewModelExt.exceptionHandler
+import com.leslienan.core_network.ViewModelExt.simplePager
 import com.leslienan.data_article.ArticleRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 /**
@@ -19,13 +17,6 @@ class HomePageViewModel @Inject constructor(
     private val articleRepository: ArticleRepository
 ) : ViewModel() {
 
-    private var pageNum = 0
-
-
-    init {
-        viewModelScope.launch(exceptionHandler) {
-            articleRepository.getArticleList(pageNum)
-        }
-    }
+    val articleList = simplePager { articleRepository.getArticleList(it) }
 
 }

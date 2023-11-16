@@ -8,5 +8,6 @@ package com.leslienan.core_network
  */
 object NetConst {
 
-    const val baseUrl = "https://www.wanandroid.com"
+    const val baseUrl = "https://www.wanandroid.com/"
+    const val pageSize = 10
 }

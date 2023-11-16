@@ -6,16 +6,6 @@ package com.leslienan.data_article.model
  * Date on 2023/11/15.
  * PS:
  */
-data class ArticlePageModel(
-    val curPage: Int = 0,
-    val datas: List<ArticleModel> = listOf(),
-    val offset: Int = 0,
-    val over: Boolean = false,
-    val pageCount: Int = 0,
-    val size: Int = 0,
-    val total: Int = 0
-)
-
 data class ArticleModel(
     val adminAdd: Boolean = false,
     val apkLink: String = "",

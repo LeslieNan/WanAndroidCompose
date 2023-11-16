@@ -1,7 +1,7 @@
 package com.leslienan.data_article
 
-import com.leslienan.core_network.NetConst
-import com.leslienan.data_article.model.ArticlePageModel
+import com.leslienan.core_network.ListWrapperModel
+import com.leslienan.data_article.model.ArticleModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -14,8 +14,8 @@ import retrofit2.http.Path
 interface ArticleApi {
 
 
-    @GET(NetConst.baseUrl + "/article/list/{pageNum}}/json")//主账号信息
-    suspend fun requestArticleList(@Path("pageNum") pageNum: Int): ArticlePageModel
+    @GET("article/list/{pageNum}/json")//主账号信息
+    suspend fun requestArticleList(@Path("pageNum") pageNum: Int): ListWrapperModel<ArticleModel>
 
 
 }

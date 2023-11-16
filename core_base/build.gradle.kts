@@ -34,6 +34,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.3"
@@ -52,6 +53,7 @@ dependencies {
     api("androidx.compose.ui:ui")
     api("androidx.compose.ui:ui-graphics")
     api("androidx.compose.ui:ui-tooling-preview")
+    api("androidx.compose.material:material")
     api("androidx.compose.material3:material3")
     testApi("junit:junit:4.13.2")
     androidTestApi("androidx.test.ext:junit:1.1.5")
@@ -63,7 +65,8 @@ dependencies {
     //compose组件
     api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     api("androidx.paging:paging-compose:1.0.0-alpha18")
-    api("io.coil-kt:coil-compose:1.3.2")
+    api("com.google.accompanist:accompanist-swiperefresh:0.28.0")
+    api("io.coil-kt:coil-compose:2.2.0")
     //hilt
     api("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")
@@ -77,5 +80,6 @@ dependencies {
     api("com.tencent:mmkv:1.3.1")
     api("com.github.liangjingkanji:Channel:1.1.2")
     api("com.google.code.gson:gson:2.10.1")
+    api("com.elvishew:xlog:1.10.1")
 
 }
