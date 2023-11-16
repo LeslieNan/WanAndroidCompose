@@ -9,6 +9,10 @@ import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,8 +33,9 @@ fun HomePage(
     modifier: Modifier = Modifier.fillMaxSize()
 ) {
     val homeViewModel = viewModel<HomePageViewModel>()
+    val refreshing by remember { mutableStateOf(false) }
     val articleList = homeViewModel.articleList.collectAsLazyPagingItems()
-    val pullRefreshState = rememberPullRefreshState(refreshing = false, onRefresh = {
+    val pullRefreshState = rememberPullRefreshState(refreshing, {
         articleList.refresh()
     })
     Box(Modifier.pullRefresh(pullRefreshState)) {
@@ -40,6 +45,6 @@ fun HomePage(
                 Text(item?.title ?: "")
             }
         }
-        PullRefreshIndicator(false, pullRefreshState, Modifier.align(Alignment.TopCenter))
+        PullRefreshIndicator(refreshing, pullRefreshState, Modifier.align(Alignment.TopCenter))
     }
 }
