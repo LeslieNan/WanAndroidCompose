@@ -5,7 +5,6 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,11 +22,11 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.leslienan.feature_user.ui.MePage
 import com.leslienan.core_base.ui.theme.WanAndroidComposeTheme
+import com.leslienan.core_base.ui.theme.backgroundColor
 import com.leslienan.feature_article.HomePage
+import com.leslienan.feature_user.ui.MePage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -42,10 +41,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             WanAndroidComposeTheme() {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
+                Surface(Modifier.fillMaxSize(), color = backgroundColor) {
                     val tabs = listOf("首页", "知识体系", "成长", "我的")
                     val pagerState = rememberPagerState(0)
                     val scope = rememberCoroutineScope()
