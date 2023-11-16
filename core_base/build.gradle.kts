@@ -65,7 +65,6 @@ dependencies {
     //compose组件
     api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     api("androidx.paging:paging-compose:1.0.0-alpha18")
-    api("com.google.accompanist:accompanist-swiperefresh:0.28.0")
     api("io.coil-kt:coil-compose:2.2.0")
     //hilt
     api("com.google.dagger:hilt-android:2.48.1")
