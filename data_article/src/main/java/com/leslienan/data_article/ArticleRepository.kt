@@ -15,4 +15,9 @@ class ArticleRepository(private val context: Context, private val articleApi: Ar
      */
     suspend fun getArticleList(pageNum: Int) = articleApi.requestArticleList(pageNum)
 
+    /**
+     * 获取首页banner数据
+     */
+    suspend fun getHomeBanner() = articleApi.requestHomeBanner()
+
 }

@@ -16,6 +16,7 @@ import androidx.compose.material.pullrefresh.pullRefresh
 import androidx.compose.material.pullrefresh.rememberPullRefreshState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -30,6 +31,10 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
+import coil.annotation.ExperimentalCoilApi
+import com.google.accompanist.pager.ExperimentalPagerApi
+import com.leslienan.core_base.widget.Banner
+import com.leslienan.core_base.widget.BannerData
 
 /**
  * Author by haolan
@@ -37,13 +42,14 @@ import androidx.paging.compose.items
  * Date on 2023/11/15.
  * PS:
  */
-@OptIn(ExperimentalMaterialApi::class)
+@OptIn(ExperimentalMaterialApi::class, ExperimentalPagerApi::class, ExperimentalCoilApi::class)
 @Preview(showBackground = true, backgroundColor = 0xffffffff)
 @Composable
 fun HomePage(
     modifier: Modifier = Modifier
 ) {
     val homeViewModel = viewModel<HomePageViewModel>()
+    val bannerList by homeViewModel.banner.collectAsState()
     val refreshing by remember { mutableStateOf(false) }
     val articleList = homeViewModel.articleList.collectAsLazyPagingItems()
     val pullRefreshState = rememberPullRefreshState(refreshing, {
@@ -51,13 +57,19 @@ fun HomePage(
     })
     Box(modifier.pullRefresh(pullRefreshState)) {
         LazyColumn() {
+            if (bannerList.isNotEmpty()) {
+                item {
+                    Banner(bannerList)
+                }
+            }
             items(items = articleList, key = { it.id }) { item ->
                 if (item == null) return@items
                 Spacer(modifier = Modifier.height(10.dp))
                 Column(
                     Modifier
                         .padding(16.dp, 10.dp)
-                        .background(Color.White)) {
+                        .background(Color.White)
+                ) {
                     Row {
                         Text(
                             item.author, Modifier

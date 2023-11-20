@@ -66,6 +66,7 @@ dependencies {
     api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     api("androidx.paging:paging-compose:1.0.0-alpha18")
     api("io.coil-kt:coil-compose:2.2.0")
+    api("com.google.accompanist:accompanist-pager:0.18.0")
     //hilt
     api("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")
