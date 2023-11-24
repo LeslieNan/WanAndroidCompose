@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.example.core_base"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 23
@@ -49,7 +49,7 @@ dependencies {
     api("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     //compose基础
     api("androidx.activity:activity-compose:1.7.2")
-    api(platform("androidx.compose:compose-bom:2023.06.01"))
+    api(platform("androidx.compose:compose-bom:2023.10.01"))
     api("androidx.compose.ui:ui")
     api("androidx.compose.ui:ui-graphics")
     api("androidx.compose.ui:ui-tooling-preview")
@@ -58,7 +58,7 @@ dependencies {
     testApi("junit:junit:4.13.2")
     androidTestApi("androidx.test.ext:junit:1.1.5")
     androidTestApi("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestApi(platform("androidx.compose:compose-bom:2023.06.01"))
+    androidTestApi(platform("androidx.compose:compose-bom:2023.10.01"))
     androidTestApi("androidx.compose.ui:ui-test-junit4")
     debugApi("androidx.compose.ui:ui-tooling")
     debugApi("androidx.compose.ui:ui-test-manifest")
@@ -66,7 +66,7 @@ dependencies {
     api("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     api("androidx.paging:paging-compose:1.0.0-alpha18")
     api("io.coil-kt:coil-compose:2.2.0")
-    api("com.google.accompanist:accompanist-pager:0.18.0")
+    api("com.google.accompanist:accompanist-permissions:0.33.2-alpha")
     //hilt
     api("com.google.dagger:hilt-android:2.48.1")
     ksp("com.google.dagger:hilt-compiler:2.48.1")

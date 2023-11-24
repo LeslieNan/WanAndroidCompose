@@ -7,7 +7,7 @@ plugins {
 
 android {
     namespace = "com.leslienan.data_user"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 23

@@ -7,12 +7,12 @@ plugins {
 
 android {
     namespace = "com.leslienan.wanandroidcompose"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.leslienan.wanandroidcompose"
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 

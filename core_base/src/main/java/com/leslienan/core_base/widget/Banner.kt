@@ -2,6 +2,7 @@ package com.leslienan.core_base.widget
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,6 +16,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -39,9 +42,9 @@ import coil.annotation.ExperimentalCoilApi
 import coil.compose.rememberAsyncImagePainter
 import coil.compose.rememberImagePainter
 import com.example.core_base.R
-import com.google.accompanist.pager.ExperimentalPagerApi
-import com.google.accompanist.pager.HorizontalPager
-import com.google.accompanist.pager.rememberPagerState
+//import com.google.accompanist.pager.ExperimentalPagerApi
+//import com.google.accompanist.pager.HorizontalPager
+//import com.google.accompanist.pager.rememberPagerState
 import kotlinx.coroutines.delay
 
 /**
@@ -51,8 +54,8 @@ import kotlinx.coroutines.delay
  * PS:
  */
 
+@OptIn(ExperimentalFoundationApi::class)
 @ExperimentalCoilApi
-@ExperimentalPagerApi
 @Composable
 fun Banner(
     list: List<BannerData>?,
@@ -77,15 +80,15 @@ fun Banner(
             )
         } else {
             val pagerState = rememberPagerState(
-                //总页数
-                pageCount = list.size,
-                //预加载的个数
-                initialOffscreenLimit = 1,
-                //是否无限循环
-                infiniteLoop = true,
+//                //预加载的个数
+//                initialOffscreenLimit = 1,
+//                //是否无限循环
+//                infiniteLoop = true,
                 //初始页面
                 initialPage = 0
-            )
+            ){
+                list.size
+            }
 
             //监听动画执行
             var executeChangePage by remember { mutableStateOf(false) }

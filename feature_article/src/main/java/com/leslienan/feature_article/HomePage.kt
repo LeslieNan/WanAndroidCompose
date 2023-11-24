@@ -32,9 +32,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import coil.annotation.ExperimentalCoilApi
-import com.google.accompanist.pager.ExperimentalPagerApi
 import com.leslienan.core_base.widget.Banner
-import com.leslienan.core_base.widget.BannerData
 
 /**
  * Author by haolan
@@ -42,7 +40,7 @@ import com.leslienan.core_base.widget.BannerData
  * Date on 2023/11/15.
  * PS:
  */
-@OptIn(ExperimentalMaterialApi::class, ExperimentalPagerApi::class, ExperimentalCoilApi::class)
+@OptIn(ExperimentalMaterialApi::class, ExperimentalCoilApi::class)
 @Preview(showBackground = true, backgroundColor = 0xffffffff)
 @Composable
 fun HomePage(

@@ -23,6 +23,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.google.accompanist.permissions.rememberPermissionState
 import com.leslienan.core_base.ui.theme.WanAndroidComposeTheme
 import com.leslienan.core_base.ui.theme.backgroundColor
 import com.leslienan.feature_article.HomePage
@@ -43,11 +44,11 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(Modifier.fillMaxSize(), color = backgroundColor) {
                     val tabs = listOf("首页", "知识体系", "成长", "我的")
-                    val pagerState = rememberPagerState(0)
+                    val pagerState = rememberPagerState(0) { 4 }
                     val scope = rememberCoroutineScope()
                     Column(Modifier.fillMaxSize()) {
                         HorizontalPager(
-                            pageCount = 4, state = pagerState,
+                            state = pagerState,
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .weight(1f)
