@@ -3,10 +3,10 @@ package com.leslienan.data_article.model
 /**
  * Author by haolan
  * Email leslienan@qq.com
- * Date on 2023/11/15.
+ * Date on 2023/11/24.
  * PS:
  */
-data class ArticleModel(
+data class ProjectModel(
     val adminAdd: Boolean = false,
     val apkLink: String = "",
     val audit: Int = 0,
@@ -48,4 +48,5 @@ data class ArticleModel(
         val url: String = ""
     )
 }
+
 

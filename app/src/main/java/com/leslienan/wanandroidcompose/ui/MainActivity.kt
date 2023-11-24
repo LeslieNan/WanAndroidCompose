@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -27,6 +28,7 @@ import com.google.accompanist.permissions.rememberPermissionState
 import com.leslienan.core_base.ui.theme.WanAndroidComposeTheme
 import com.leslienan.core_base.ui.theme.backgroundColor
 import com.leslienan.feature_article.HomePage
+import com.leslienan.feature_article.ProjectPage
 import com.leslienan.feature_user.ui.MePage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -43,8 +45,8 @@ class MainActivity : ComponentActivity() {
             WanAndroidComposeTheme() {
                 // A surface container using the 'background' color from the theme
                 Surface(Modifier.fillMaxSize(), color = backgroundColor) {
-                    val tabs = listOf("首页", "知识体系", "成长", "我的")
-                    val pagerState = rememberPagerState(0) { 4 }
+                    val tabs = listOf("首页", "知识体系", "项目", "成长", "我的")
+                    val pagerState = rememberPagerState(0) { tabs.size }
                     val scope = rememberCoroutineScope()
                     Column(Modifier.fillMaxSize()) {
                         HorizontalPager(
@@ -55,6 +57,7 @@ class MainActivity : ComponentActivity() {
                         ) { page ->
                             when (page) {
                                 0 -> HomePage()
+                                2 -> ProjectPage()
                                 3 -> MePage()
                             }
                         }
@@ -64,7 +67,7 @@ class MainActivity : ComponentActivity() {
                             indicator = {
                                 TabRowDefaults.Indicator(
                                     modifier = Modifier
-                                        .fillMaxWidth()
+//                                        .fillMaxWidth()
                                         .wrapContentSize(Alignment.BottomStart)
                                         .width(0.dp)
                                         .height(0.dp)//修改指示器高度为1dp，默认2dp
@@ -76,6 +79,7 @@ class MainActivity : ComponentActivity() {
                             tabs.forEachIndexed { index, tabName ->
                                 val selected = pagerState.currentPage == index
                                 Tab(selected = selected,
+                                    modifier= Modifier.fillMaxHeight(),
                                     selectedContentColor = primaryColor,
                                     unselectedContentColor = secondaryColor,
                                     onClick = {
@@ -83,7 +87,7 @@ class MainActivity : ComponentActivity() {
                                             pagerState.animateScrollToPage(index)
                                         }
                                     }) {
-                                    Text(text = tabName)
+                                    Text(text = tabName,Modifier.fillMaxHeight())
                                 }
                             }
                         }
