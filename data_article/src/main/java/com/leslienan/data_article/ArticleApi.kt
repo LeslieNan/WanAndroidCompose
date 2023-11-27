@@ -31,7 +31,7 @@ interface ArticleApi {
     @GET("project/list/{pageNum}/json")//获取项目分类
     suspend fun requestProjects(
         @Path("pageNum") pageNum: Int,
-        @Query("cid") itemId: String
+        @Query("cid") itemId: Int
     ): ListWrapperModel<ProjectModel>
 
 

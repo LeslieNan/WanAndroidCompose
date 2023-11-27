@@ -26,7 +26,6 @@ class HomePageViewModel @Inject constructor(
     private val articleRepository: ArticleRepository
 ) : ViewModel() {
 
-    val publishSdf = SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.SIMPLIFIED_CHINESE)
     private val _banner = MutableStateFlow<List<BannerData>>(listOf())
     val banner = _banner.asStateFlow()
 

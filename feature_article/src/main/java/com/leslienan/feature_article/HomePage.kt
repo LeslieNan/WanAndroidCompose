@@ -32,6 +32,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.items
 import coil.annotation.ExperimentalCoilApi
+import com.leslienan.core_base.util.TimeUtil
 import com.leslienan.core_base.widget.Banner
 
 /**
@@ -74,7 +75,7 @@ fun HomePage(
                                 .wrapContentHeight()
                                 .weight(1f), fontSize = 12.sp
                         )
-                        Text(homeViewModel.publishSdf.format(item.publishTime), fontSize = 12.sp)
+                        Text(TimeUtil.publishSdf.format(item.publishTime), fontSize = 12.sp)
                     }
                     Text(item.title, fontSize = 16.sp, fontWeight = FontWeight.Bold)
                 }

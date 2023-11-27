@@ -28,6 +28,6 @@ class ArticleRepository(private val context: Context, private val articleApi: Ar
     /**
      * 获取项目列表
      */
-    suspend fun getProjectList(itemId: String, pageNum: Int) = articleApi.requestProjects(pageNum, itemId)
+    suspend fun getProjectList(itemId: Int, pageNum: Int) = articleApi.requestProjects(pageNum, itemId)
 
 }

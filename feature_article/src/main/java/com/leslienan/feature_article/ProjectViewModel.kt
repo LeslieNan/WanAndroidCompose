@@ -3,7 +3,6 @@ package com.leslienan.feature_article
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
-import com.leslienan.core_base.widget.BannerData
 import com.leslienan.core_network.ViewModelExt.exceptionHandler
 import com.leslienan.core_network.ViewModelExt.simplePager
 import com.leslienan.data_article.ArticleRepository
@@ -30,7 +29,7 @@ class ProjectViewModel @Inject constructor(
     private val _items = MutableStateFlow<List<ProjectItemModel>>(listOf())
     val items = _items.asStateFlow()
 
-    private val pageMap = mutableMapOf<String, Flow<PagingData<ProjectModel>>>()
+    private val pageMap = mutableMapOf<Int, Flow<PagingData<ProjectModel>>>()
 
     init {
         getProjectItemList()
@@ -42,8 +41,9 @@ class ProjectViewModel @Inject constructor(
         }
     }
 
-    fun getProjectList(itemId: String): Flow<PagingData<ProjectModel>> {
-        if (pageMap[itemId] == null) pageMap[itemId] = simplePager { articleRepository.getProjectList(itemId, it) }
+    fun getProjectList(itemId: Int): Flow<PagingData<ProjectModel>> {
+        if (pageMap[itemId] == null) pageMap[itemId] =
+            simplePager { articleRepository.getProjectList(itemId, it) }
         return pageMap[itemId]!!
     }
 
