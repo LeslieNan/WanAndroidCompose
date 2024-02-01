@@ -1,0 +1,14 @@
+[versions]
+# 编译版本
+compileSdk = "34"
+minSdk = "23"
+targetSdk = "34"
+versionCode = "1"
+versionName = "1.0"
+kotlinCompilerExtensionVersion = "1.5.3"
+
+[libraries]
+
+[bundles]
+
+[plugins]

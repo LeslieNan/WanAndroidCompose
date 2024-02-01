@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.lazy.LazyColumn
@@ -19,6 +20,7 @@ import androidx.compose.material3.ScrollableTabRow
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.paging.compose.items
@@ -91,7 +93,10 @@ fun ProjectPage(modifier: Modifier = Modifier.fillMaxSize()) {
             if (tabs.isEmpty()) return@HorizontalPager
             val projectList =
                 projectViewModel.getProjectList(tabs[page].id).collectAsLazyPagingItems()
-            LazyColumn() {
+            LazyColumn(
+                Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp, 0.dp)) {
                 items(projectList, { it.id }) { item ->
                     if (item == null) return@items
                     Row {
@@ -118,7 +123,6 @@ fun ProjectPage(modifier: Modifier = Modifier.fillMaxSize()) {
                                 Text(item.author, fontSize = 12.sp)
                                 Text(TimeUtil.publishSdf.format(item.publishTime), fontSize = 12.sp)
                             }
-
                         }
                     }
                 }

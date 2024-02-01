@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -19,10 +20,12 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.permissions.rememberPermissionState
 import com.leslienan.core_base.ui.theme.WanAndroidComposeTheme
@@ -63,15 +66,21 @@ class MainActivity : ComponentActivity() {
                         }
                         TabRow(
                             selectedTabIndex = pagerState.currentPage,
-                            Modifier.height(50.dp),
+                            Modifier
+                                .height(50.dp)
+                                .background(color = Color.Black),
                             indicator = {
-                                TabRowDefaults.Indicator(
-                                    modifier = Modifier
-//                                        .fillMaxWidth()
-                                        .wrapContentSize(Alignment.BottomStart)
-                                        .width(0.dp)
-                                        .height(0.dp)//修改指示器高度为1dp，默认2dp
-                                )
+//                                TabRowDefaults.Indicator(
+//                                    modifier = Modifier
+////                                        .fillMaxWidth()
+//                                        .wrapContentSize(Alignment.BottomStart)
+//                                        .width(0.dp)
+//                                        .height(0.dp)//修改指示器高度为1dp，默认2dp
+//                                )
+//                                TabRowDefaults.Indicator(
+//                                    Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex])
+//                                )
+                                TabRowDefaults.Indicator(height = 0.dp, color = Color.Transparent)
                             }
                         ) {
                             val primaryColor = MaterialTheme.colorScheme.primary
@@ -79,7 +88,7 @@ class MainActivity : ComponentActivity() {
                             tabs.forEachIndexed { index, tabName ->
                                 val selected = pagerState.currentPage == index
                                 Tab(selected = selected,
-                                    modifier= Modifier.fillMaxHeight(),
+                                    modifier = Modifier.fillMaxHeight(),
                                     selectedContentColor = primaryColor,
                                     unselectedContentColor = secondaryColor,
                                     onClick = {
@@ -87,7 +96,7 @@ class MainActivity : ComponentActivity() {
                                             pagerState.animateScrollToPage(index)
                                         }
                                     }) {
-                                    Text(text = tabName,Modifier.fillMaxHeight())
+                                    Text(text = tabName, Modifier.fillMaxHeight())
                                 }
                             }
                         }

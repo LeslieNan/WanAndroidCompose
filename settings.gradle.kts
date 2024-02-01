@@ -7,6 +7,11 @@ pluginManagement {
     }
 }
 dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs"){
+            from(files("$rootDir/libs.toml"))
+        }
+    }
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         maven("https://jitpack.io")
